@@ -6,10 +6,10 @@ services:
     ports:
       - 9090:9090
     command:
-      - --storage.tsdb.path=/prometheus --storage.tsdb.retention.time=60d --config.file=/etc/prometheus/prometheus.yml
+      - --config.file=/etc/prometheus/prometheus.yml --storage.tsdb.retention.time=60d
     volumes:
       - ./prometheus.yml:/etc/prometheus/prometheus.yml:ro
-      - ./prometheus-data:/prometheus
+      - ./prometheus-data:/prometheus/data
     depends_on:
       - cadvisor
   cadvisor:
